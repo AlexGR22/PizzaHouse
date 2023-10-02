@@ -28,4 +28,4 @@ app.get('/inicio', (req, res) => {
     res.render('inicio');
 });
 
-module.exports = app;
+module.exports = app; 
