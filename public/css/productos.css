@@ -1,0 +1,66 @@
+
+
+.carta__seccion1{
+    background: url(images/PizzaBanner.jpg) no-repeat center / cover fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    height: auto;
+    padding: 100px;
+    
+}
+
+.carta__titulo{
+    color: #e8eddf;
+    font-size: 60px;
+    position: static;
+    background-color: #242423;
+    width: 80vw;
+    text-align: center;
+    padding-top: 150px;
+}
+
+.carta__seccion-interior{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #242423 ;
+    width: 80vw;
+    height: auto;
+}
+.carta__seccion-interior hr{
+    border-color: #e8eddf;
+    margin-bottom:40px;
+}
+
+.carta__seccion-productos{
+    margin: 80px;
+    background-color: #e8eddf ;
+    width: 300px;
+    height: 300px ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carta__seccion-productos img{
+    width: 280px;
+    height: 280px;
+    margin: 10px;
+    
+}
+
+.carta__seccion-productos p{
+    margin: 10px;
+    color: #e8eddf;
+}
+
+.carta__seccion-productos button{
+    text-decoration: none;
+    background-color: #e8eddf;
+    border-radius: 15px;
+    font-family: 'Caveat', cursive;
+}
+

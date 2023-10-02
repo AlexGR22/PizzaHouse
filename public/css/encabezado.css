@@ -1,0 +1,47 @@
+
+.encabezado__Principal .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #242423  ;
+    /* padding: 0px 5px 0px 0px; */
+    height: 110px;
+    
+}
+
+.encabezado__logo{
+    display: flex;
+    align-items: center;
+    color: #e8eddf;
+
+}
+.encabezado__logo--icono{
+    /* width: 100px; */
+    height: 100px;
+    padding:0px 10px 0px 10px
+}
+
+.encabezado__logo--h1{
+    font-size: 30px;
+}
+.encabezado__lista{
+    display: flex;
+    /* justify-content: space-around; no tiene espacio en el cual separarlos como en la etiqueta padre */
+    /* padding-right: 15px; ya */
+}
+
+.encabezado__lista-link{
+    display: flex;
+    margin: 6px;
+    padding-right: 20px;
+    text-decoration: none;
+    color: rgb(232, 237, 223);
+    align-items: center;
+}
+
+.encabezado__lista-link hr{
+    height: 35px;
+    width: 0px;
+    border: 0.01px solid;
+    margin-right: 10px;
+}
