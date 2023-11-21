@@ -2,6 +2,7 @@ const mongoose = require ('mongoose')
 
 const { Schema } = require('mongoose');
 
+// Definición del esquema para el modelo de cliente
 const clienteSchema = new Schema({
     nombre: {
         type: String,

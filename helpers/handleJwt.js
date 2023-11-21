@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const CLAVEJWT = process.env.CLAVEJWT;
 
-
+// Generar un token JWT basado en el detalle del cliente
 const generarJWT = async (cliente) => {
 
     console.log(CLAVEJWT);
@@ -13,12 +13,13 @@ const generarJWT = async (cliente) => {
         },
         CLAVEJWT,
         {
-            expiresIn: '10m'
+            expiresIn: '30m' // Expiración del token en 30 minutos
         }
         );
 
 }
 
+// Verificar un token JWT y devolver su contenido si es válido
 const verifyJWT = async (token) => {
     try {
         return jwt.verify(token, CLAVEJWT);

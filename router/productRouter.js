@@ -14,22 +14,32 @@ const {
      } = require('../controllers/productController');
 
      
+// Ruta para obtener todos los productos
 router.get('/productos', products);
 
-router.get('/productos/new',checkRoleToken(['admin']), formProducts);
+// Ruta para mostrar el formulario de creación de productos (solo accesible para usuarios con rol 'admin')
+router.get('/productos/new', checkRoleToken(['admin']), formProducts);
 
-router.get('/cliente/productos',checkRoleToken(['user','admin']), clientProducts);
+// Ruta para obtener los productos disponibles para clientes (accesible para usuarios con rol 'user' o 'admin')
+router.get('/cliente/productos', checkRoleToken(['user', 'admin']), clientProducts);
 
-router.get('/productos/:id',checkRoleToken(['user','admin']), detailsProduct);
+// Ruta para obtener los detalles de un producto específico (accesible para usuarios con rol 'user' o 'admin')
+router.get('/productos/:id', detailsProduct);
 
-router.get('/editar/:id',checkRoleToken(['admin']), editProduct);
+// Ruta para mostrar el formulario de edición de un producto (solo accesible para usuarios con rol 'admin')
+router.get('/editar/:id', checkRoleToken(['admin']), editProduct);
 
-router.get('/admin/productos',checkRoleToken(['admin']), adminProducts);
+// Ruta para ver,actualizar o eliminar productos (solo accesible para usuarios con rol 'admin')
+router.get('/admin/productos', checkRoleToken(['admin']), adminProducts);
 
-router.post('/productos', addProducts);
+// Ruta para agregar un nuevo producto
+router.post('/productos', checkRoleToken(['admin']), addProducts);
 
-router.post('/editar/:id',checkRoleToken(['admin']), updateProduct);
+// Ruta para actualizar un producto existente (solo accesible para usuarios con rol 'admin')
+router.post('/editar/:id', checkRoleToken(['admin']), updateProduct);
 
-router.post('/eliminar/:id',checkRoleToken(['admin']), deleteProduct);
+// Ruta para eliminar un producto existente (solo accesible para usuarios con rol 'admin')
+router.post('/eliminar/:id', checkRoleToken(['admin']), deleteProduct);
+
 
 module.exports = router;   

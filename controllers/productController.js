@@ -1,16 +1,18 @@
-
 const Producto = require('../models/productModel');
 const DeletedProduct = require('../models/deletedProductModel');
 
+// Función para obtener y renderizar todos los productos en la página de administrador
 const products = async (req, res) => {
     try {
-
+        // Obtener todos los productos de la base de datos
         const allProducts = await Producto.find({});
+        
+        // allProducts.forEach(product => {
+        //     console.log(product.name);
+        // })
 
-        allProducts.forEach(product => {
-            console.log(product.name);
-        })
 
+        // Renderizar la página 'products' con los productos obtenidos
         return res.render('products', {
             title: 'Listado de Productos',
             products: allProducts,
@@ -22,9 +24,12 @@ const products = async (req, res) => {
 
 }
 
+// Función para obtener y renderizar todos los productos en la página de cliente
 const clientProducts = async (req, res) => {
     try {
+        // Obtener todos los productos de la base de datos
         const allProducts = await Producto.find({});
+        // Renderizar la página 'clientProducts' con los productos obtenidos
         return res.render('clientProducts', {
             title: 'Listado de Productos',
             products: allProducts,
@@ -35,9 +40,13 @@ const clientProducts = async (req, res) => {
     }
 }
 
+// Función para obtener y renderizar todos los productos en la página de administrador de productos
 const adminProducts = async (req, res) => {
     try {
+        // Obtener todos los productos de la base de datos
         const allProducts = await Producto.find({});
+
+        // Renderizar la página 'adminProducts' con los productos obtenidos
         return res.render('adminProducts', {
             title: 'Listado de Productos',
             products: allProducts,
@@ -48,38 +57,41 @@ const adminProducts = async (req, res) => {
     }
 }
 
+//Función para renderizar el formulario de agregar productos
 const formProducts = (req, res) => {
     res.render('addProducts');
 }
 
+// Función para obtener y renderizar la descripción de un producto específico
 const detailsProduct = async (req, res) => {
 
     const { id } = req.params;
 
     try {
-
+        // Buscar el producto en la base de datos utilizando su ID
         let product = await Producto.findById({ _id: id });
 
-        console.log(req.params);
-
+        // Renderizar la página 'detailsProduct' con los detalles del producto obtenido
         return res.render('detailsProduct', {
-            title: 'Listado de Productos',
+            title: 'Descripción del Producto',
             product: product
         });
     } catch (error) {
+        // Manejar el error en caso de que no se encuentre el producto
         console.log(error);
         return res.render('error');
     }
 }
 
+// Función para agregar un nuevo producto
 const addProducts = async (req, res) => {
 
     const { name, price, imageUrl, description } = req.body;
-    console.log(`1. nombre ${name} - precio ${price} - stock  - descripcion ${description}`);
+    console.log(`Agregando. nombre ${name} - precio ${price} - stock  - descripcion ${description}`);
 
 
     try {
-
+        // Verificar si ya existe un producto con el mismo nombre en la base de datos
         let existingProduct = await Producto.findOne({ name });
 
         if (existingProduct) {
@@ -89,6 +101,7 @@ const addProducts = async (req, res) => {
             });
         }
 
+        // Crear un nuevo objeto de producto con los datos proporcionados
         let newProduct =  new Producto({
             name,
             price,
@@ -96,21 +109,26 @@ const addProducts = async (req, res) => {
             imageUrl,
         });
 
+        // Guardar el nuevo producto en la base de datos
         await newProduct.save();
 
+        // Obtener todos los productos actualizados de la base de datos
         const allProducts = await Producto.find({});
 
+        // Renderizar la página 'adminProducts' con los productos actualizados
         return await res.render('adminProducts', {
             title: 'Listado de Productos',
             products: allProducts,
         });
     } catch (error) {
+        // Manejar el error en caso de que no se pueda agregar el nuevo producto
         console.log(error);
         return res.render('error');
     }
 }
 
 
+// Función para obtener y renderizar los detalles de un producto específico para editar
 const editProduct = async (req, res) => {
     const { id } = req.params;
 
@@ -123,7 +141,7 @@ const editProduct = async (req, res) => {
     });
 }
 
-
+// Función para actualizar un producto existente
 const updateProduct = async (req, res) => {
     const { id } = req.params;
     console.log(id);
@@ -138,9 +156,12 @@ const updateProduct = async (req, res) => {
         //    mensaje: 'el producto fue actualizado',
         //    product: productUpdated
         // });
+
+        // Redirigir a la página de administración de productos
         return res.redirect('/admin/productos');
 
     } catch (error) {
+        // Manejar el error en caso de que no se pueda actualizar el producto
         console.log(error);
         return res.render('error');
     }
@@ -149,33 +170,32 @@ const updateProduct = async (req, res) => {
 
 }
 
+// Función para eliminar un producto
 const deleteProduct = async (req, res) => {
     const { id } = req.params;
 
-      
     try {
-      let product = await Producto.findByIdAndDelete({ _id: id });
+         // Buscar y eliminar el producto en la base de datos utilizando su ID
+        let product = await Producto.findByIdAndDelete({ _id: id });
   
-      if (!product) {
-        return res.render('error', {
-          mensaje: 'Producto no encontrado',
-        });
-      }
-        // Guarda el producto eliminado en la base de datos
+        if (!product) {
+            return res.render('error', {
+            mensaje: 'Producto no encontrado',
+            });
+        }
+        // Guarda el producto eliminado en la base de datos "deletedProducts"
         const deletedProduct = new DeletedProduct({
             name: product.name,
             price: product.price,
             imageUrl: product.imageUrl,
             description: product.description,
-          });
-      
-          await deletedProduct.save();
-      
-          console.log(`El producto ${product.name} fue eliminado`);
-  
-   
-  
-      return res.redirect('/admin/productos');
+        });
+    
+        await deletedProduct.save(); 
+        console.log(`El producto ${product.name} fue eliminado`);
+
+        // Redirigir a la página de administración de productos
+        return res.redirect('/admin/productos');
     } catch (error) {
       console.log(error);
       return res.render('error');

@@ -8,13 +8,17 @@ const {
     deleteOrder
 } = require('../controllers/orderController');
 
-router.get('/pedidos',checkRoleToken(['admin']), order);
+// Ruta para obtener todos los pedidos (solo accesible para usuarios con rol 'admin')
+router.get('/pedidos', checkRoleToken(['admin']), order);
 
-router.get('/pedidos/:id',checkRoleToken(['admin']), detailOrder);
+// Ruta para obtener los detalles de un pedido específico (solo accesible para usuarios con rol 'admin')
+router.get('/pedidos/:id', checkRoleToken(['admin']), detailOrder);
 
-router.post('/pedidos',checkRoleToken(['user','admin']), addOrder);
+// Ruta para agregar un nuevo pedido (accesible para usuarios con rol 'user' o 'admin')
+router.post('/pedidos', checkRoleToken(['user', 'admin']), addOrder);
 
-router.post('/pedidos/:id',checkRoleToken(['admin']), deleteOrder);
+// Ruta para eliminar un pedido existente (solo accesible para usuarios con rol 'admin')
+router.post('/pedidos/:id', checkRoleToken(['admin']), deleteOrder);
 
 
 module.exports = router

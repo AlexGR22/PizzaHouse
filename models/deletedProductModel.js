@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = require('mongoose');
 
-
+// Definición del esquema para el modelo de  Productos Eliminados
 const deletedProductSchema = new mongoose.Schema({
     name: {
       type: String,
