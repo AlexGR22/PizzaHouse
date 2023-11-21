@@ -1,0 +1,42 @@
+<div class="agregarProducto">
+
+
+    <div>
+        <h1 class="title">{{title}}</h1> <br>
+
+
+                    <div class="product-container">
+                        {{#each products}}
+                        <div class="product-item">
+                            <img src="{{this.imageUrl}}" alt="{{this.name}}" class="product-image">
+                            <p class="product-name">Producto: {{this.name}}</p>
+                            <p class="product-price">Precio: ${{this.price}}</p>
+                            <p class="product-description">Descripción: {{this.description}}</p>
+                            <div class="button-container">
+                                <a href="/productos/{{this._id}}" class="view-button">Ver</a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+    </div>
+
+    <div>
+    <h1 class="contacto__titulo">Formulario de Pedido<hr></h1>
+        <section class="principal__contacto2">
+            <form class="contacto__form" action="/pedidos" method="post" >
+
+                <label for="nombre">Usuario</label>
+                <input type="email" id="nombreUsuario" class="inputPadron" name="name" placeholder="Ingrese su email de usuario" required>
+
+
+                <label for="descripcion">Descripción del pedido</label>
+                <textarea id="descripcion" class="inputPadron" name="description" placeholder="Ingrese el pedido a realizar, colocando el nombre del producto y la cantidad" required style="height: 200px; width: 300px; text-align: center"></textarea>
+
+
+                <input type="submit" value="Realizar Pedido" id="enviar" class="enviar">            
+
+
+            </form>
+        </section>
+    </div>
+</div>

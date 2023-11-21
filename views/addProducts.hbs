@@ -1,0 +1,28 @@
+<main>
+        <h1 class="contacto__titulo">REGISTRO<hr></h1>
+        <section class="principal__contacto2">
+            <form class="contacto__form" action="/productos" method="post" >
+
+                <label for="nombre">Nombre Producto</label>
+                <input type="text" id="nombreProducto" class="inputPadron" name="name" placeholder="Nombre Producto" required>
+
+                <label for="precio">Precio</label>
+                <input type="number" id="precio" class="inputPadron" name="price" placeholder="$0.00" required >
+
+                
+
+                <label for="descripcion">Descripción</label>
+                <input type="text" id="descripcion" class="inputPadron" name="description" placeholder="Descripcion del producto" required >
+
+                <label for="descripcion">Imagen</label>
+                <input type="text" id="descripcion" class="inputPadron" name="imageUrl" placeholder="agregue el url de la imagen del producto" required >
+                
+
+                <input type="submit" value="Agregar Producto" id="enviar" class="enviar">            
+
+
+                  <a href="/login" class="registro"><h1>Ya tienes cuenta?</h1></a>
+
+            </form>
+        </section>
+    </main>

@@ -1,6 +1,6 @@
 
 
-.carta__seccion1{
+/* .carta__seccion1{
     background: url(images/PizzaBanner.jpg) no-repeat center / cover fixed;
     display: flex;
     flex-direction: column;
@@ -62,5 +62,136 @@
     background-color: #e8eddf;
     border-radius: 15px;
     font-family: 'Caveat', cursive;
+}
+ */
+
+
+ .agregarProducto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+ .title {
+    color: black;
+    font-size: 30px;
+    display: block;
+    text-align: center;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.product-item {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+    /* width: calc(33.33% - 20px); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-item form {
+    margin: 0;
+    padding: 0;
+}
+
+.product-image {
+    width: 200px;
+    height: 200px;
+    margin: 50px;
+}
+
+/* .product-name {
+    Agrega estilos adicionales según sea necesario
+}
+
+.product-price {
+    Agrega estilos adicionales según sea necesario
+}
+
+.product-description {
+    Agrega estilos adicionales según sea necesario
+} */
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+.view-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.edit-button {
+    background-color: #50AFCA;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* .delete-button input[type="submit"] {
+    display: none;
+} */
+
+
+.enviar2 {
+    width: 40% ;
+    height: 20%;
+    padding: 15px 5px;
+    color: #242423;
+    background-color: #e8eddf;
+    border: 1px solid #242423; ;
+    border-radius: 15px;
+    transition: 0.5s all;
+    cursor: pointer;
+}
+.enviar2:hover {
+    background-color: #242423 ;
+    color: #e8eddf ;
+    /* transform: scale(1.1) rotate(1deg) ; */
 }
 

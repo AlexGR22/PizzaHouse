@@ -9,4 +9,4 @@ const server = app.listen(PORT, () => {
 
 server.on('Error: ', (error) => {
     console.log(`Server is not running because of ${error}`);
-});                                    
+});                                     

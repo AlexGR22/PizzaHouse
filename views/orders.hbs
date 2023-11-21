@@ -1,0 +1,31 @@
+<div class="agregarProducto" >
+
+ <a href="/admin" class="enviar2" style="width: 10%; text-align: center; margin: 10px"> Regresar </a>
+        <div>
+            <h1 class="title">{{title}}</h1> <br>
+                <div class="product-container">
+                    {{#each orders}}
+                    <div class="product-item">
+                        <p class="product-name">Producto: {{this.name}}</p>
+                        <p class="product-description">Descripción: {{this.description}}</p>
+                        <p class="product-description">Hora de pedido: {{this.orderedAt}}</p>
+                        <div class="button-container">
+                            <a href="/pedidos/{{this._id}}" class="view-button">Ver completo</a>
+                            {{!-- <a href="/editar/{{this._id}}" class="edit-button">Editar</a> --}}
+                            <form action="/pedidos/{{this._id}}" method="POST"
+                                onsubmit="return confirm('¿Estás seguro de eliminar el producto?')">
+                                <input type="submit" value="Eliminar" id="enviar" class="delete-button">
+                            </form>
+                        </div>
+                    </div>
+                      {{/each}}
+                </div>
+        </div>
+  
+
+   
+</div>
+
+
+
+

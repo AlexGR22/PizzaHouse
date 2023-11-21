@@ -1,0 +1,23 @@
+<div class="agregarProducto">
+
+
+    <div>
+        <h1 class="title">{{title}}</h1> <br>
+                    <div class="product-container">
+                        {{#each products}}
+                        <div class="product-item">
+                            <img src="{{this.imageUrl}}" alt="{{this.name}}" class="product-image">
+                            <p class="product-name">Producto: {{this.name}}</p>
+                            <p class="product-price">Precio: ${{this.price}}</p>
+                            <p class="product-description">Descripción: {{this.description}}</p>
+                            <div class="button-container">
+                                <a href="/productos/{{this._id}}" class="view-button">Ver</a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+    </div>
+
+        <a href="/login" class="enviar2" style="width: 10%; text-align: center; margin: 10px"> Ingresá para realizar un pedido</a>
+
+</div>
