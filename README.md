@@ -38,7 +38,7 @@ El proceso de inicio de sesión incluye las siguientes etapas:
 Para acceder a la ruta de inicio de sesión de usuarios, se debe utilizar la siguiente URL: `/login`.
 
 
-## Registro de Usuario
+### Registro de Usuario
 
 La aplicación cuenta con una ruta para registrar nuevos usuarios. Para registrarse, se deben proporcionar los siguientes campos:
 
