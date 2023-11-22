@@ -63,8 +63,9 @@ El proceso de registro incluye las siguientes etapas:
 ### Gestión de la Aplicación
 
 - Operaciones CRUD para productos y pedidos
-- Visualización de una lista de productos (pizzas) con detalles relevantes, como nombre, descripción, precio y foto
-- Rutas específicas para cada operación, incluyendo eliminación de productos/pedidos mediante el uso del ID (solo el admin)
+- Visualización de una lista de productos (pizzas) con detalles relevantes, como nombre, descripción, precio y foto 
+- Visualización de Usuarios con detalles, como nombre, email, fecha de registro y Rol,
+- Rutas específicas para cada operación, incluyendo eliminación de productos,pedidos y usuarios(no permite eliminar admins) mediante el uso del ID 
 
 ### Gestión de Pedidos
 
