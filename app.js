@@ -9,6 +9,10 @@ const cookieParser = require('cookie-parser');
 const userRouter = require('./router/userRouter');
 const productRouter = require('./router/productRouter');
 const orderRouter = require('./router/orderRouter');
+const clientRouter = require('./router/clientRouter');
+
+// const morgan = require('morgan');
+// app.use(morgan('dev'));
 
 
 app.use(cors());
@@ -27,10 +31,10 @@ hbs.registerPartials(path.join(__dirname, '/views/partials'));
 app.use('/', userRouter);
 app.use('/', productRouter);
 app.use('/', orderRouter);
-
+app.use('/',clientRouter)
 
 // app.get('/Inicio', (req, res) => {
 //     res.render('Inicio');
 // });
  
-module.exports = app;  
+module.exports = app;     

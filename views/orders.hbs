@@ -12,10 +12,13 @@
                         <div class="button-container">
                             <a href="/pedidos/{{this._id}}" class="view-button">Ver completo</a>
                             {{!-- <a href="/editar/{{this._id}}" class="edit-button">Editar</a> --}}
-                            <form action="/pedidos/{{this._id}}" method="POST"
+                            <form action="/delete-pedido/{{this._id}}" method="post"
                                 onsubmit="return confirm('¿Estás seguro de eliminar el producto?')">
                                 <input type="submit" value="Eliminar" id="enviar" class="delete-button">
                             </form>
+
+                            {{!-- <a href="/delete-pedido/{{this._id}}" class="view-button" >eliminar </a> --}}
+
                         </div>
                     </div>
                       {{/each}}

@@ -1,0 +1,39 @@
+
+  .table{
+    display: flex;
+    align-items: flex-start;
+  }
+  .form-table{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 15px;
+    max-width: 10px;
+  }
+  .botones{
+    padding: 8px;
+    margin: 0px;
+    display: flex;
+  }
+  .buttonUser {
+    color: black;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 5px;
+    margin-left: 10px;
+    display: inline-block;
+  }
+
+  .cliente-table{
+    margin: auto;
+    margin-right: 20px;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .cliente-table-celda {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    min-width: 200px;
+  }
+  

@@ -30,6 +30,9 @@ input, textarea, select{
     padding: 10px 10px;
     width: 90%;
 }
+.inputPadron2{
+    display: none;
+} 
 .checkbox{
     margin: 40px 0 15px;
     font-size: 17px;

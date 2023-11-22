@@ -1,5 +1,7 @@
 const Producto = require('../models/productModel');
 const DeletedProduct = require('../models/deletedProductModel');
+const Clientes = require('../models/userModel');
+const { verifyJWT } = require('../helpers/handleJwt');
 
 // Función para obtener y renderizar todos los productos en la página de administrador
 const products = async (req, res) => {
@@ -26,6 +28,12 @@ const products = async (req, res) => {
 
 // Función para obtener y renderizar todos los productos en la página de cliente
 const clientProducts = async (req, res) => {
+
+    const token = req.cookies.token;
+    const verifyToken = await verifyJWT(token);
+    const userDetail = await Clientes.findById(verifyToken._id);    
+    console.log(`el usuario ${userDetail.nombre} se encuentra por realizar un pedido`);
+
     try {
         // Obtener todos los productos de la base de datos
         const allProducts = await Producto.find({});
@@ -33,6 +41,7 @@ const clientProducts = async (req, res) => {
         return res.render('clientProducts', {
             title: 'Listado de Productos',
             products: allProducts,
+            user: userDetail
         });
     } catch (error) {
         console.log(error);

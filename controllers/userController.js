@@ -117,7 +117,7 @@ const userLogin = async (req, res) => {
             return res.render('client', {
                 nombre: userDetail.nombre
             })
-        }
+        } 
         
     } catch (e) {
         // Si hay un error, renderizamos la página de inicio de sesión

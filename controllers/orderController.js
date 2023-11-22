@@ -19,7 +19,7 @@ const order = async (req, res) => {
         });
     } catch (error) {
         console.log(error);
-        res.render('error');
+        res.render('error'); 
     }
 }
 
@@ -47,13 +47,13 @@ const detailOrder = async (req, res) => {
 // Función para agregar un nuevo pedido
 const addOrder = async (req, res) => {
 
-    const { name, description, orderedAt } = req.body;
+    const { name, email, description, orderedAt } = req.body;
     console.log(`1. el usuario ${name} esta agregando un nuevo pedido - 2. descripcion: ${description}`);
 
 
     try {
         // Verificar si ya existe un pedido con el mismo nombre en la base de datos
-        let existingProduct = await Pedido.findOne({ name });
+        let existingProduct = await Pedido.findOne({ email });
 
         if (existingProduct) {
             console.log('comprobando si existe el producto');
@@ -65,6 +65,7 @@ const addOrder = async (req, res) => {
         // Crear un nuevo pedido con los datos proporcionados
         let newOrder = new Pedido({
             name,
+            email,
             description,
             orderedAt
         });
@@ -73,7 +74,7 @@ const addOrder = async (req, res) => {
 
         // Renderizar la página 'clientOrder' con el título y los detalles del nuevo pedido
         return await res.render('clientOrder', {
-            title: 'Pedidos Realizado',
+            title: 'PEDIDO REALIZADO CON EXITO',
             order: newOrder,
         });
     } catch (error) {
@@ -86,7 +87,6 @@ const addOrder = async (req, res) => {
 // Función para eliminar un pedido
 const deleteOrder = async (req, res) => {
     const { id } = req.params;
-
 
     try {
         // Buscar y eliminar el pedido en la base de datos utilizando su ID

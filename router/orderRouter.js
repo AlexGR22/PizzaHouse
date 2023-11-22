@@ -18,7 +18,8 @@ router.get('/pedidos/:id', checkRoleToken(['admin']), detailOrder);
 router.post('/pedidos', checkRoleToken(['user', 'admin']), addOrder);
 
 // Ruta para eliminar un pedido existente (solo accesible para usuarios con rol 'admin')
-router.post('/pedidos/:id', checkRoleToken(['admin']), deleteOrder);
+router.post('/delete-pedido/:id', checkRoleToken(['admin']), deleteOrder);
+router.delete('/delete-pedido/:id', checkRoleToken(['admin']), deleteOrder);
 
 
 module.exports = router

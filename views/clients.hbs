@@ -1,0 +1,32 @@
+
+<h1 class="title">{{title}}</h1> <br>
+
+<table class="cliente-table">
+    <tr>
+      <th>Nombre</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each clients}}
+    <tr>
+      <td class="cliente-table-celda">{{nombre}}</td>
+      <td class="cliente-table-celda">{{email}}</td>
+      <td>
+        <a href="/usuarios/actualizar/{{id}}" class="buttonUser">Ver más</a>
+      </td>
+    </tr>
+    {{/each}}
+    </tbody>
+</table>
+{{!-- 
+    <div class='form-table'>
+    {{#each clients}}
+    <form class="botones">
+        <a href="/editar/client/{{id}}" class="buttonUser">Editar</a>
+        <a href="/usuarios/eliminar/{{id}}" class="buttonUser">Eliminar</a>
+     </form>
+    {{/each}}
+    </div> --}}
+   
+

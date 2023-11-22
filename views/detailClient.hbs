@@ -1,0 +1,26 @@
+<div class="agregarProducto">
+
+    <a href="/usuarios" class="enviar2" style="width: 10%; text-align: center; margin: 10px"> Regresar </a>
+
+    <div>
+        <h1 class="title">{{title}}</h1> <br>
+        <div class="product-container">
+
+            <div class="product-item">
+                <p class="product-name">Nombre del cliente: {{client.name}}</p>
+                <p class="product-description">Email: {{client.email}}</p>
+                <p class="product-description">Fecha de registro: {{client.timestamp}}</p>
+                <p>Rol: {{client.role}}</p>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <form action="/usuarios/eliminar/{{client._id}}" method="POST"
+                onsubmit="return confirm('¿Estás seguro de eliminar el Usuario?')">
+                <input type="submit" value="Eliminar" id="enviar" class="delete-button">
+            </form>
+        </div>
+
+    </div>
+
+</div>
