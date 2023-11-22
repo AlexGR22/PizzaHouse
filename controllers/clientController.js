@@ -36,7 +36,7 @@ const deleteClient = async (req, res) => {
 
     try {
         // Buscar y eliminar el usuario en la base de datos utilizando su ID
-        let client = await Clients.findByIdAndDelete({ _id: id });
+        let client = await Clients.findById({ _id: id });
 
         if (!client) {
             return res.render('error', {
@@ -47,6 +47,8 @@ const deleteClient = async (req, res) => {
                 mensaje: 'No se puede eliminar un usuario administrador',
             });
         }
+
+        client = await Clients.findByIdAndDelete({ _id: id });
 
         console.log(`El Cliente ${client.nombre} fue eliminado`);
         // Redirigir a la página de usuarios
