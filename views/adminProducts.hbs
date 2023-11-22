@@ -20,18 +20,17 @@
                                 <a href="/productos/{{this._id}}" class="view-button">Ver</a>
                                 <a href="/editar/{{this._id}}" class="edit-button">Editar</a>
 
-                                {{!-- <form action="/editar/{{this._id}}" method="POST" onsubmit="return">
-                                    <input type="submit" value="Editar" id="enviar" class="edit-button">
-                                </form> --}}
-                                <form action="/eliminar/{{this._id}}" method="POST"
+                                <a href="/pedidos" onclick="deleteProducto('{{this._id}}',window.location.href);return false" class="delete-button"  >Eliminar</a>
+
+                                {{!-- <form action="/eliminar/{{this._id}}" method="POST"
                                     onsubmit="return confirm('¿Estás seguro de eliminar el producto?')">
                                     <input type="submit" value="Eliminar" id="enviar" class="delete-button">
-                                </form>
+                                </form> --}}
                             </div>
                         </div>
                         {{/each}}
                     </div>
-    </div>
+    </div> 
 
 
     <a href="/productos/new" class="enviar2" style="width: 10%; text-align: center; margin: 10px"> Agregar más

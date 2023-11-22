@@ -204,7 +204,9 @@ const deleteProduct = async (req, res) => {
         console.log(`El producto ${product.name} fue eliminado`);
 
         // Redirigir a la página de administración de productos
-        return res.redirect('/admin/productos');
+        return res.render('adminProducts', {
+            title: 'Listado de Productos',
+        });
     } catch (error) {
       console.log(error);
       return res.render('error');

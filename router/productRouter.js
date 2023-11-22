@@ -37,9 +37,11 @@ router.post('/productos', checkRoleToken(['admin']), addProducts);
 
 // Ruta para actualizar un producto existente (solo accesible para usuarios con rol 'admin')
 router.post('/editar/:id', checkRoleToken(['admin']), updateProduct);
+router.put('/editar/:id', checkRoleToken(['admin']), updateProduct);
 
 // Ruta para eliminar un producto existente (solo accesible para usuarios con rol 'admin')
-router.post('/eliminar/:id', checkRoleToken(['admin']), deleteProduct);
+router.delete('/eliminar/:id', checkRoleToken(['admin']), deleteProduct);
+// router.post('/eliminar/:id', checkRoleToken(['admin']), deleteProduct);
 
 
 module.exports = router;   

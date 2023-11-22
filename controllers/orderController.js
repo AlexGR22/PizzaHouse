@@ -22,7 +22,7 @@ const order = async (req, res) => {
         res.render('error'); 
     }
 }
-
+ 
 // Función para obtener y renderizar los detalles de un pedido específico
 const detailOrder = async (req, res) => {
 
@@ -101,7 +101,9 @@ const deleteOrder = async (req, res) => {
         console.log(`El pedido ${order.name} fue eliminado`);
 
         // Redirigir a la página de pedidos
-        return res.redirect('/pedidos');
+        return  res.render('orders', {
+            title: 'Orden eliminada',
+        });
     } catch (error) {
         console.log(error);
         return res.render('error');
