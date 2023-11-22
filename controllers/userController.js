@@ -178,6 +178,7 @@ const userLogin = async (req, res) => {
                     return res.render('clientProducts', {
                         title: 'Listado de Productos',
                         products: allProducts,
+                        user: usuarioLogin
                     });
                 }
             } else {
