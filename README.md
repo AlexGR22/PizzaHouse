@@ -107,6 +107,17 @@ La aplicación utiliza las siguientes tecnologías y herramientas:
 - Render: un servicio de alojamiento y despliegue de aplicaciones web que permite ejecutar aplicaciones en un entorno de producción.
 - Mongo Atlas: un servicio de base de datos en la nube que proporciona una forma fácil de configurar, mantener y escalar la base de datos MongoDB.
 
+## Variables de Entorno
+
+Las siguientes variables de entorno son utilizadas en esta aplicación:
+
+- `PORT`: El puerto en el que se ejecuta el servidor (por defecto: 3000).
+- `MONGO_URL_LOCAL`: La URL de conexión a la base de datos local de MongoDB.
+- `MONGO_URL_ATLAS`: La URL de conexión a la base de datos de MongoDB en Atlas.
+- `CLAVEJWT`: La clave secreta utilizada para firmar los tokens de acceso JWT.
+
+Asegúrate de configurar estas variables de entorno adecuadamente antes de ejecutar la aplicación. Puedes hacerlo creando un archivo `.env` en la raíz del proyecto y asignando valores a las variables.
+
 
 ## Enlaces
 
